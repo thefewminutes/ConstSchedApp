@@ -1,0 +1,59 @@
+@charset "utf-8";
+/* CSS Document */
+html {
+	position:relative;
+	min-height:100%;
+}
+body {
+  padding:0;
+  margin-bottom:40px;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-family:Georgia,"Times New Roman",Serif;
+}
+.page-heading {
+	height:68px;
+	border-top: 5px solid #342618;
+	background-image:url(../images/henleylogo.png);
+	background-repeat:no-repeat;
+	background-position: 0px -45px;
+	background-color:#b81f37;
+}
+
+.tabtop {
+	margin-top: 1.5em;
+}
+
+/* top havigation */
+.navbar-inverse {
+    background-image: linear-gradient(to bottom, #b81f37 0px, #b81f37 100%);
+    background-repeat: repeat-x;
+}
+.navbar-header {
+	background-image:url(../images/henleylogo2.png);
+	background-repeat:no-repeat;
+	background-position:0px 5px;
+}
+.navbar-header .navbar-brand {
+	width: 190px;
+}
+td > div.checkbox {
+	margin:0;
+}
+div.page-header {
+	margin: 20px 0 20px
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  background-color: #f5f5f5;
+  padding:1em;
+}
+
+/* angular ui-bootstrap styles */
+.nav, .pagination, .carousel, .panel-title a {
+	cursor: pointer;
+}

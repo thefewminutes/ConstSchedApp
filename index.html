@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="constrSchedApp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A construction scheduling web application">
+    <meta name="author" content="Mark D. Johnson">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <title>Construction Scheduling Web App</title>
+
+    <!-- Bootstrap core CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap.min.css">
+    <!-- Bootstrap theme -->
+    <link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap-theme.min.css">
+    <!-- Site styles -->
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <script src="assets/angularjs/angular.js"></script>
+    <script src="assets/ui-bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"></a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Help</a></li>
+            <li><a href="#">Legal</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+              <li><a href="./">Logged in as David Jones <span class="glyphicon glyphicon-user"></span></a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    <!-- view -->
+    <div ng-view></div>
+    <!-- /view -->
+    <div id="footer">
+      <div class="container">
+        <p class="text-muted">&copy; Copyright 2014</p>
+      </div>
+    </div>
+    
+    <script src="assets/angularjs/angular-route.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/controllers.js"></script>
+    <script src="assets/js/services.js"></script>
+    <script src="assets/js/filters.js"></script>
+    <script src="assets/js/directives.js"></script>
+  </body>
+</html>
