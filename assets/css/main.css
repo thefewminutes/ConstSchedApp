@@ -57,3 +57,7 @@ div.page-header {
 .nav, .pagination, .carousel, .panel-title a {
 	cursor: pointer;
 }
+
+#page-total-pager {
+	margin: 20px 0;
+}
