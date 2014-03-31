@@ -80,16 +80,252 @@
         <div class="tab-content">
           <div class="tab-pane fade in active" id="jobs"><!-- jobs tab -->
           	<ul class="nav nav-pills tabtop">
-          		<li class="disabled"><a href="#jobs_activities" data-toggle="tab">Activities</a></li>
-          		<li class="active"><a href="#jobs_responsible" data-toggle="tab">Responsible</a></li>
+          		<li class="active"><a href="#jobs_activities" data-toggle="tab">Activities</a></li>
+          		<li><a href="#jobs_responsible" data-toggle="tab">Responsible</a></li>
                 <li><a href="#jobs_documents" data-toggle="tab">Documents <span class="badge">5</span></a></li>
                 <li class="disabled"><a href="#jobs_pos" data-toggle="tab">Purchase Orders</a></li>
                 <li class="disabled"><a href="#jobs_notes" data-toggle="tab">Job Notes</a></li>
                 <li class="disabled"><a href="#jobs_delaydays" data-toggle="tab">Delay Days</a></li>
         	</ul>
             <div class="tab-content">
-            	<div class="tab-pane fade" id="jobs_activities"><p>Jobs Activities tab content</p></div>
-                <div class="tab-pane fade in active" id="jobs_responsible"><!-- Jobs > Responsible tab content -->
+            	<div class="tab-pane fade in active" id="jobs_activities"><!-- Jobs > Activities tab content -->
+                	<p class="tabtop"><input ng-model="search" class="form-control input-md searchbox" type="search" placeholder="Search"></p>
+          	<div class="row tabtop"><!-- filters -->
+            	<div class="col-xs-12">
+                    <div class="btn-group">
+                    	<button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
+                    		Sub Phase <span class="caret"></span>
+                    	</button>
+                    	<ul class="dropdown-menu" role="menu">
+                    		<li><a href="#">sub phase 1</a></li>
+                    		<li><a href="#">sub phase 2</a></li>
+                    		<li><a href="#">sub phase 3</a></li>
+                    	</ul>
+                    </div>
+                	<div class="btn-group">
+                    	<button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
+                    		Follow Up Status <span class="caret"></span>
+                    	</button>
+                    	<ul class="dropdown-menu" role="menu">
+                    		<li><a href="#">Follow Up 1</a></li>
+                    		<li><a href="#">Follow Up 2</a></li>
+                    		<li><a href="#">Follow Up 3</a></li>
+                    	</ul>
+                    </div>
+                	<div class="btn-group">
+                    	<button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
+                    		Cost Centre <span class="caret"></span>
+                    	</button>
+                    	<ul class="dropdown-menu" role="menu">
+                    		<li><a href="#">Cost Centre 1</a></li>
+                    		<li><a href="#">Cost Centre 2</a></li>
+                    		<li><a href="#">Cost Centre 3</a></li>
+                    	</ul>
+                    </div>
+                	<div class="btn-group">
+                    	<button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
+                    		Vendor <span class="caret"></span>
+                    	</button>
+                    	<ul class="dropdown-menu" role="menu">
+                    		<li><a href="#">Vendor 1</a></li>
+                    		<li><a href="#">Vendor 2</a></li>
+                    		<li><a href="#">Vendor 3</a></li>
+                    	</ul>
+                    </div>
+                </div>
+            </div><!-- /filters -->
+            <div class="row">
+                <div class="col-md-12">
+                  <ul class="pagination">
+                    <li class="disabled"><a href="#">&laquo;</a></li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">&raquo;</a></li>
+                  </ul>
+                  	<div id="page-total-pager" class="btn-group pull-right">
+                        <button type="button" class="btn btn-primary">10</button>
+                        <button type="button" class="btn btn-default">20</button>
+                        <button type="button" class="btn btn-default">30</button>
+                	</div>
+                </div>
+              </div>
+
+              <div class="table-responsive">
+                <table class="table table-striped table-condensed">
+                    <thead>
+                        <tr>
+                            <th>Job Name</th>
+                            <th>Activity</th>
+                            <th>Cost Centre</th>
+                            <th>Vendor</th>
+                            <th>Forecast / Last Called For Date</th>
+                            <th>Called For</th>
+                            <th>Confirmed</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                            	<div class="checkbox">
+                                	<label>
+                                		<input type="checkbox" value="">
+                                		Lot 13, 38 Auburn Street, Melbourne
+                                	</label>
+                                </div></td>
+                            <td>Water tapping</td>
+                            <td>Water</td>
+                            <td><span class="caret"></span> Southeast Water</td>
+                            <td>datepicker / datepicker</td>
+                            <td>15/12/2014</td>
+                            <td><span class="glyphicon glyphicon-ok"></span></td>
+                        </tr>
+                        <tr class="active">
+                            <td>
+                            	<div class="checkbox">
+                                	<label>
+                                		<input type="checkbox" value="">
+                                		Lot 13, 38 Auburn Street, Melbourne
+                                	</label>
+                                </div></td>
+                            <td>Water tapping</td>
+                            <td>Water</td>
+                            <td><span class="caret"></span> Vendor Inc.</td>
+                            <td>datepicker / datepicker</td>
+                            <td>15/12/2014</td>
+                            <td><span class="glyphicon glyphicon-ok"></span></td>
+                        </tr>
+                        <tr class="info">
+                        	<td colspan="7">
+                                <address>
+                                    <strong>Vendor, Inc.</strong><br>
+                                    795 Folsom Ave, Suite 600 San Francisco, CA 94107<br>
+                                    <span class="glyphicon glyphicon-envelope"></span> <a href="mailto:joe@joeplumber.com">joe@joeplumber.com</a><br>
+                                    <span class="glyphicon glyphicon-phone"></span> <a href="tel:+13174562564">(123) 456-7890</a>
+                                </address>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            	<div class="checkbox">
+                                	<label>
+                                		<input type="checkbox" value="">
+                                		Lot 13, 38 Auburn Street, Melbourne
+                                	</label>
+                                </div></td>
+                            <td>Water tapping</td>
+                            <td>Water</td>
+                            <td><span class="caret"></span> Southeast Water</td>
+                            <td>datepicker / datepicker</td>
+                            <td>15/12/2014</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>
+                            	<div class="checkbox">
+                                	<label>
+                                		<input type="checkbox" value="">
+                                		Lot 13, 38 Auburn Street, Melbourne
+                                	</label>
+                                </div></td>
+                            <td>Water tapping</td>
+                            <td>Water</td>
+                            <td><span class="caret"></span> Southeast Water</td>
+                            <td>datepicker / datepicker</td>
+                            <td>15/12/2014</td>
+                            <td><span class="glyphicon glyphicon-ok"></span></td>
+                        </tr>
+                        <tr class="success">
+                            <td>
+                            	<div class="checkbox">
+                                	<label>
+                                		<input type="checkbox" value="">
+                                		Lot 13, 38 Auburn Street, Melbourne
+                                	</label>
+                                </div></td>
+                            <td>Water tapping</td>
+                            <td>Water</td>
+                            <td><span class="caret"></span> Southeast Water</td>
+                            <td>datepicker / datepicker</td>
+                            <td>15/12/2014</td>
+                            <td><span class="glyphicon glyphicon-ok"></span></td>
+                        </tr>
+                        <tr class="danger">
+                            <td>
+                            	<div class="checkbox">
+                                	<label>
+                                		<input type="checkbox" value="">
+                                		Lot 13, 38 Auburn Street, Melbourne
+                                	</label>
+                                </div></td>
+                            <td>Water tapping</td>
+                            <td>Water</td>
+                            <td><span class="caret"></span> Southeast Water</td>
+                            <td>datepicker / datepicker</td>
+                            <td>15/12/2014</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr class="danger">
+                            <td>
+                            	<div class="checkbox">
+                                	<label>
+                                		<input type="checkbox" value="">
+                                		Lot 13, 38 Auburn Street, Melbourne
+                                	</label>
+                                </div></td>
+                            <td>Water tapping</td>
+                            <td>Water</td>
+                            <td><span class="caret"></span> Southeast Water</td>
+                            <td>datepicker / datepicker</td>
+                            <td>15/12/2014</td>
+                            <td><span class="glyphicon glyphicon-ok"></span></td>
+                        </tr>
+                        <tr class="success">
+                            <td>
+                            	<div class="checkbox">
+                                	<label>
+                                		<input type="checkbox" value="">
+                                		Lot 13, 38 Auburn Street, Melbourne
+                                	</label>
+                                </div></td>
+                            <td>Water tapping</td>
+                            <td>Water</td>
+                            <td><span class="caret"></span> Southeast Water</td>
+                            <td>datepicker / datepicker</td>
+                            <td>15/12/2014</td>
+                            <td><span class="glyphicon glyphicon-ok"></span></td>
+                        </tr>
+                        <tr class="success">
+                            <td>
+                            	<div class="checkbox">
+                                	<label>
+                                		<input type="checkbox" value="">
+                                		Lot 13, 38 Auburn Street, Melbourne
+                                	</label>
+                                </div></td>
+                            <td>Water tapping</td>
+                            <td>Water</td>
+                            <td><span class="caret"></span> Southeast Water</td>
+                            <td>datepicker / datepicker</td>
+                            <td>15/12/2014</td>
+                            <td><span class="glyphicon glyphicon-ok"></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+              </div><!-- /table-responsive -->
+              <div class="row">
+                <div class="col-md-12">
+					<p>
+                    	<button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-envelope"></span> Email Call Up Selected</button>
+                        <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-flag"></span> Manual Call Up Selected</button>
+                    	<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-file"></span> Create PDF</button>
+                        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-refresh"></span> Update</button>
+                    </p>
+                </div>
+              </div>
+                </div><!-- /Jobs > Activities tab content -->
+                <div class="tab-pane fade" id="jobs_responsible"><!-- Jobs > Responsible tab content -->
                 	<div class="table-responsive tabtop">
                 <table class="table table-striped table-condensed">
                     <thead>
