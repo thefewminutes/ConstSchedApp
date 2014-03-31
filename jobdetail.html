@@ -73,7 +73,7 @@
         <!-- Nav tabs -->
         <ul class="nav nav-tabs">
           <li class="active"><a href="#jobs" data-toggle="tab">Jobs</a></li>
-          <li><a href="#activities" data-toggle="tab">Activities <span class="badge">38</span></a></li>
+          <li><a href="#activities" data-toggle="tab">All Activities <span class="badge">38</span></a></li>
         </ul>
         
         <!-- Tab panes -->
@@ -150,6 +150,7 @@
             </div>
           </div><!-- /jobs tab -->
           <div class="tab-pane fade" id="activities"><!-- activities tab -->
+          <p class="tabtop"><input ng-model="search" class="form-control input-md searchbox" type="search" placeholder="Search"></p>
           	<div class="row tabtop"><!-- filters -->
             	<div class="col-xs-12">
                     <div class="btn-group">
@@ -204,6 +205,11 @@
                     <li><a href="#">4</a></li>
                     <li><a href="#">&raquo;</a></li>
                   </ul>
+                  	<div id="page-total-pager" class="btn-group pull-right">
+                        <button type="button" class="btn btn-primary">10</button>
+                        <button type="button" class="btn btn-default">20</button>
+                        <button type="button" class="btn btn-default">30</button>
+                	</div>
                 </div>
               </div>
 
@@ -215,7 +221,7 @@
                             <th>Activity</th>
                             <th>Cost Centre</th>
                             <th>Vendor</th>
-                            <th>Forecast / Actual Date</th>
+                            <th>Forecast / Last Called For Date</th>
                             <th>Called For</th>
                             <th>Confirmed</th>
                         </tr>
@@ -372,8 +378,10 @@
               <div class="row">
                 <div class="col-md-12">
 					<p>
-                    	<button type="button" class="btn btn-primary">Call Up Selected <span class="glyphicon glyphicon-check"></span></button>
-                    	<button type="button" class="btn btn-default">Create PDF <span class="glyphicon glyphicon-file"></span></button>
+                    	<button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-envelope"></span> Email Call Up Selected</button>
+                        <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-flag"></span> Manual Call Up Selected</button>
+                    	<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-file"></span> Create PDF</button>
+                        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-refresh"></span> Update</button>
                     </p>
                 </div>
               </div>
