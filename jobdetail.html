@@ -52,24 +52,7 @@
     </div>
 
     <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-            	<h1>Job #123456 <span class="glyphicon glyphicon-camera"></span></h1>
-            	<h2>55 Selandra Blvd. <span class="glyphicon glyphicon-map-marker"></span></h2>
-        	</div>
-            <div class="col-md-4 col-md-offset-2 bg-info">
-                	<h4>Customer #1234567</h4>
-                    <p><strong>Mr. and Mrs. Kennedy</strong><br>
-                    1234 test avenue yourtown, yourstate 99999</p>
-                    <h4>Primary Contact</h4>
-                    <address>
-						<strong>Troy Dynamics</strong><br>
-						795 Folsom Ave, Suite 600 San Francisco, CA 94107<br>
-						<span class="glyphicon glyphicon-envelope"></span> <a href="mailto:joe@joeplumber.com">joe@joeplumber.com</a><br>
-						<span class="glyphicon glyphicon-phone"></span> <a href="tel:+13174562564">(123) 456-7890</a>
-					</address>
-            </div>
-        </div>
+    <h1>Construction Scheduling Web App</h1>
         <!-- Nav tabs -->
         <ul class="nav nav-tabs">
           <li class="active"><a href="#jobs" data-toggle="tab">Jobs</a></li>
@@ -79,13 +62,31 @@
         <!-- Tab panes -->
         <div class="tab-content">
           <div class="tab-pane fade in active" id="jobs"><!-- jobs tab -->
+				<div class="row tabtop">
+                    <div class="col-md-6">
+                    	<h2>Job #123456 <span class="glyphicon glyphicon-camera"></span></h2>
+                    	<h3>55 Selandra Blvd. <span class="glyphicon glyphicon-map-marker"></span></h3>
+                    </div>
+                    <div class="col-md-4 col-md-offset-2 bg-info">
+                    	<h4>Customer #1234567</h4>
+                    	<p><strong>Mr. and Mrs. Kennedy</strong><br>
+                    	1234 test avenue yourtown, yourstate 99999</p>
+                    	<h4>Primary Contact</h4>
+                    	<address>
+                    		<strong>Troy Dynamics</strong><br>
+                    		795 Folsom Ave, Suite 600 San Francisco, CA 94107<br>
+                    		<span class="glyphicon glyphicon-envelope"></span> <a href="mailto:joe@joeplumber.com">joe@joeplumber.com</a><br>
+                    		<span class="glyphicon glyphicon-phone"></span> <a href="tel:+13174562564">(123) 456-7890</a>
+                    	</address>
+					</div>
+        		</div>
           	<ul class="nav nav-pills tabtop">
           		<li class="active"><a href="#jobs_activities" data-toggle="tab">Activities</a></li>
           		<li><a href="#jobs_responsible" data-toggle="tab">Responsible</a></li>
                 <li><a href="#jobs_documents" data-toggle="tab">Documents <span class="badge">5</span></a></li>
-                <li class="disabled"><a href="#jobs_pos" data-toggle="tab">Purchase Orders</a></li>
-                <li class="disabled"><a href="#jobs_notes" data-toggle="tab">Job Notes</a></li>
-                <li class="disabled"><a href="#jobs_delaydays" data-toggle="tab">Delay Days</a></li>
+                <li><a href="#jobs_pos" data-toggle="tab">Purchase Orders</a></li>
+                <li><a href="#jobs_notes" data-toggle="tab">Job Notes</a></li>
+                <li><a href="#jobs_delaydays" data-toggle="tab">Delay Days</a></li>
         	</ul>
             <div class="tab-content">
             	<div class="tab-pane fade in active" id="jobs_activities"><!-- Jobs > Activities tab content -->
@@ -380,7 +381,9 @@
                     	<a href="#" class="list-group-item"><img src="assets/images/icons/genericfile.png" width="32" height="32" alt="File"> file5.abc</a>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="jobs_pos"><p>Jobs purchase orders tab content</p></div>
+                <div class="tab-pane fade" id="jobs_pos"><!-- jobs > purchase orders tab -->
+                	<p class="tabtop"><input ng-model="search" class="form-control input-md searchbox" type="search" placeholder="Search"></p>
+                </div><!-- /jobs > purchase orders tab -->
                 <div class="tab-pane fade" id="jobs_notes"><p>Jobs job notes tab content</p></div>
                 <div class="tab-pane fade" id="jobs_delaydays"><p>Jobs delay days tab content</p></div>
             </div>
