@@ -43,40 +43,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-pushpin"></span></button> 1234567890</td>
-                            <td>Lot 706 | 55 Selandra blvd. | North Clyde</td>
-                            <td>Lexington Lux Q2</td>
-                            <td>Broadway</td>
-                            <td>Frame</td>
-                        </tr>
-                        <tr>
-                            <td><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-pushpin"></span></button> 1234567890</td>
-                            <td>Lot 706 | 55 Selandra blvd. | North Clyde</td>
-                            <td>Lexington Lux Q2</td>
-                            <td>Broadway</td>
-                            <td>Frame</td>
-                        </tr>
-                        <tr>
-                            <td><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-pushpin"></span></button> 1234567890</td>
-                            <td>Lot 706 | 55 Selandra blvd. | North Clyde</td>
-                            <td>Lexington Lux Q2</td>
-                            <td>Broadway</td>
-                            <td>Frame</td>
-                        </tr>
-                        <tr>
-                            <td><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-pushpin"></span></button> 1234567890</td>
-                            <td>Lot 706 | 55 Selandra blvd. | North Clyde</td>
-                            <td>Lexington Lux Q2</td>
-                            <td>Broadway</td>
-                            <td>Frame</td>
-                        </tr>
-                        <tr>
-                            <td><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-pushpin"></span></button> 1234567890</td>
-                            <td>Lot 706 | 55 Selandra blvd. | North Clyde</td>
-                            <td>Lexington Lux Q2</td>
-                            <td>Broadway</td>
-                            <td>Frame</td>
+                        <tr ng-repeat="job in jobs.JobList | filter:search">
+                            <td><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-pushpin"></span></button> {{job.JobNumber}}</td>
+                            <td>{{job.JobAddress}}<span ng-show="!job.JobAddress">No Data</span></td>
+                            <td>{{job.SelectedHouseType}}<span ng-show="!job.SelectedHouseType">No Data</span></td>
+                            <td>{{job.SelectedFacade}}<span ng-show="!job.SelectedFacade">No Data</span></td>
+                            <td>{{job.CurrentSubPhase}}<span ng-show="!job.CurrentSubPhase">No Data</span></td>
                         </tr>
                     </tbody>
                 </table>

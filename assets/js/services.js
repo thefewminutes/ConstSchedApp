@@ -2,8 +2,10 @@
 
 /* Services */
 
+var appServices = angular.module('appServices', ['ngResource']);
 
-// Demonstrate how to register services
-// In this case it is a simple value service.
-angular.module('constrSchedApp.services', []).
-  value('version', '0.1');
+appServices.factory('Job', ['$resource', function($resource){
+	return $resource('../henley/assets/jobs2.json', {}, {
+		query: {method:'GET', isArray:false}
+	});
+}]);

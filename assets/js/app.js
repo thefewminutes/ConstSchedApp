@@ -3,12 +3,12 @@
 angular.module('constrSchedApp', [
   'ngRoute',
   'constrSchedApp.filters',
-  'constrSchedApp.services',
+  'appServices',
   'constrSchedApp.directives',
-  'constrSchedApp.controllers',
+  'appControllers',
   'ui.bootstrap'
 ]).
 config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/dashboard', {templateUrl: 'partials/dashboard.html', controller: 'jobList'});
+  $routeProvider.when('/dashboard', {templateUrl: 'partials/dashboard.html', controller: 'jobListCtrl'});
   $routeProvider.otherwise({redirectTo: '/dashboard'});
 }]);

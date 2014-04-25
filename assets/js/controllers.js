@@ -2,10 +2,8 @@
 
 /* Controllers */
 
-angular.module('constrSchedApp.controllers', []).
-  controller('jobList', [function() {
+var appControllers = angular.module('appControllers', []);
 
-  }])
-  .controller('MyCtrl2', [function() {
-
-  }]);
+appControllers.controller('jobListCtrl', ['$scope', 'Job', function($scope, Job) {
+	$scope.jobs = Job.query(); // create Job service
+}]);
