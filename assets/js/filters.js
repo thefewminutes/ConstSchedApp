@@ -2,9 +2,11 @@
 
 /* Filters */
 
+// pagination filter
 angular.module('constrSchedApp.filters', []).
-  filter('interpolate', ['version', function(version) {
-    return function(text) {
-      return String(text).replace(/\%VERSION\%/mg, version);
-    }
-  }]);
+  filter('pagination', function(){
+    return function(inputArray, selectedPage, pageSize) {
+        var start = selectedPage*pageSize;
+		return inputArray.slice(start, start + pageSize);
+	}
+  });

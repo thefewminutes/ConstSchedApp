@@ -12,18 +12,8 @@
 			<p class="tabtop"><input ng-model="search" class="form-control input-md searchbox" type="search" placeholder="Search"></p>
             <div class="row">
                 <div class="col-md-12">
-                    <ul class="pagination">
-                        <li class="disabled"><a href="#">First</a></li>
-                        <li class="disabled"><a href="#">Previous</a></li>
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">...</a></li>
-                        <li><a href="#">Next</a></li>
-                        <li><a href="#">Last</a></li>
-                    </ul>
+                <!-- pager -->
+                <pagination total-items="filteredJobs.length" page="pageNo" max-size="maxSize" class="pagination-md" boundary-links="true" rotate="false" num-pages="numPages"></pagination>
                     <div id="page-total-pager" class="btn-group pull-right">
                         <button type="button" class="btn btn-primary">10</button>
                         <button type="button" class="btn btn-default">20</button>
@@ -42,8 +32,8 @@
                             <th>Sub Phase</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr ng-repeat="job in jobs.JobList | filter:search">
+                    <tbody ng-repeat="job in filteredJobs = (jobs.JobList | filter:search | orderBy:sortField:reverse) | pagination:pageNo:pageSize">
+                        <tr>
                             <td><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-pushpin"></span></button> {{job.JobNumber}}</td>
                             <td>{{job.JobAddress}}<span ng-show="!job.JobAddress">No Data</span></td>
                             <td>{{job.SelectedHouseType}}<span ng-show="!job.SelectedHouseType">No Data</span></td>
@@ -53,18 +43,9 @@
                     </tbody>
                 </table>
             </div><!-- /table-responsive -->
-            <ul class="pagination">
-                <li class="disabled"><a href="#">First</a></li>
-                <li class="disabled"><a href="#">Previous</a></li>
-                <li class="active"><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">...</a></li>
-                <li><a href="#">Next</a></li>
-                <li><a href="#">Last</a></li>
-            </ul>
+            <!-- pager -->
+                <pagination total-items="filteredJobs.length" page="pageNo" max-size="maxSize" class="pagination-md" boundary-links="true" rotate="false" num-pages="numPages"></pagination>
+                <pre>Page: {{pageNo}} / {{numPages}}</pre>
 
           </div><!-- /jobs tab -->
         </div>
