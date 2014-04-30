@@ -22,17 +22,17 @@
                 </div>
             </div>
             <div class="table-responsive">
-            	<table class="table table-striped table-condensed">
+            	<table class="table table-condensed">
                 	<thead>
                         <tr>
-                            <th>Job</th>
-                            <th>Location</th>
-                            <th>House Type</th>
-                            <th>Facade</th>
-                            <th>Sub Phase</th>
+                            <th ng-click="sort('JobNumber')">Job<i ng-class="{'glyphicon glyphicon-chevron-up pull-right':isSortUp('JobNumber'), 'glyphicon glyphicon-chevron-down pull-right':isSortDown('JobNumber')}"></i></th>
+                            <th ng-click="sort('JobAddress')">Location<i ng-class="{'glyphicon glyphicon-chevron-up pull-right':isSortUp('JobAddress'), 'glyphicon glyphicon-chevron-down pull-right':isSortDown('JobAddress')}"></i></th>
+                            <th ng-click="sort('SelectedHouseType')">House Type<i ng-class="{'glyphicon glyphicon-chevron-up pull-right':isSortUp('SelectedHouseType'), 'glyphicon glyphicon-chevron-down pull-right':isSortDown('SelectedHouseType')}"></i></th>
+                            <th ng-click="sort('SelectedFacade')">Facade<i ng-class="{'glyphicon glyphicon-chevron-up pull-right':isSortUp('SelectedFacade'), 'glyphicon glyphicon-chevron-down pull-right':isSortDown('SelectedFacade')}"></i></th>
+                            <th ng-click="sort('CurrentSubPhase')">Sub Phase<i ng-class="{'glyphicon glyphicon-chevron-up pull-right':isSortUp('CurrentSubPhase'), 'glyphicon glyphicon-chevron-down pull-right':isSortDown('CurrentSubPhase')}"></i></th>
                         </tr>
                     </thead>
-                    <tbody ng-repeat="job in filteredJobs = (jobs.JobList | filter:search | orderBy:sortField:reverse) | pagination:pageNo:pageSize">
+                    <tbody ng-repeat="job in filteredJobs = (jobs.JobList | filter:search | orderBy:sortField:reverse) | pagination:pageNo:pageSize" ng-class-even="'light-gray'" ng-class-odd="'dark-gray'">
                         <tr>
                             <td><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-pushpin"></span></button> {{job.JobNumber}}</td>
                             <td>{{job.JobAddress}}<span ng-show="!job.JobAddress">No Data</span></td>
