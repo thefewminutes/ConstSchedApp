@@ -39,9 +39,12 @@ appControllers.controller('jobListCtrl', ['$scope', 'Job', function($scope, Job)
 		}
 	});
 	$scope.pageNo = 1;
-	$scope.setActivePage = function (pageNo) {
+	$scope.setPage = function (pageNo) {
 		if (pageNo >=0 && pageNo < $scope.pages.length) {
 			$scope.pageNo = pageNo;
 		}
+	};
+	$scope.setPageSize = function (size) { // set page size
+		$scope.pageSize = size;
 	};
 }]);
