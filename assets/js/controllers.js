@@ -55,3 +55,7 @@ appControllers.controller('jobListCtrl', ['$scope', 'Job', function($scope, Job)
 		};
 	};
 }]);
+
+appControllers.controller('jobResponsibleCtrl', ['$scope', function($scope) {
+	
+}]);

@@ -9,6 +9,16 @@ angular.module('constrSchedApp', [
   'ui.bootstrap'
 ]).
 config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/dashboard', {templateUrl: 'partials/dashboard.html', controller: 'jobListCtrl'});
-  $routeProvider.otherwise({redirectTo: '/dashboard'});
+  $routeProvider.
+  	when('/dashboard', {
+		templateUrl: 'partials/dashboard.html', 
+		controller: 'jobListCtrl'
+	}).
+	when('/job-responsible/:jobId', {
+		templateUrl: 'partials/job-responsible.html', 
+		controller: 'jobResponsibleCtrl'
+	}).
+	otherwise({
+		redirectTo: '/dashboard'
+	});
 }]);
