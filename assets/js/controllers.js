@@ -47,4 +47,11 @@ appControllers.controller('jobListCtrl', ['$scope', 'Job', function($scope, Job)
 	$scope.setPageSize = function (size) { // set page size
 		$scope.pageSize = size;
 	};
+	$scope.showMap = function(location) { // display location in new window on google maps
+		if(location){
+			window.open('http://maps.google.com/?q=' + location);
+		} else {
+			alert('No Location Data');
+		};
+	};
 }]);

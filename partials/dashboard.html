@@ -34,7 +34,7 @@
                     </thead>
                     <tbody ng-repeat="job in filteredJobs = (jobs.JobList | filter:search | orderBy:sortField:reverse) | pagination:pageNo:pageSize" ng-class-even="'light-gray'" ng-class-odd="'dark-gray'">
                         <tr>
-                            <td><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-pushpin"></span></button> {{job.JobNumber}}</td>
+                            <td><button type="button" ng-click="showMap(job.JobAddress)" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-pushpin"></span></button> {{job.JobNumber}}</td>
                             <td>{{job.JobAddress}}<span ng-show="!job.JobAddress">No Data</span></td>
                             <td>{{job.SelectedHouseType}}<span ng-show="!job.SelectedHouseType">No Data</span></td>
                             <td>{{job.SelectedFacade}}<span ng-show="!job.SelectedFacade">No Data</span></td>
