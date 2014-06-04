@@ -2,7 +2,7 @@
     	<h1>Construction Scheduling Web App</h1>
         <!-- Nav tabs -->
         <ul class="nav nav-tabs">
-        	<li class="active"><a href="#">Jobs</a></li>
+        	<li class="active"><a href="#/dashboard">Jobs</a></li>
         	<li class="disabled"><a href="#">All Activities</a></li>
         </ul>
         
@@ -10,7 +10,11 @@
         <div class="tab-content">
         	<!-- jobs tab -->
         	<div class="tab-pane active" id="jobs">
-            	<div class="row tabtop">
+                <ol class="breadcrumb tabtop">
+                	<li><a href="#/dashboard">Jobs</a></li>
+                	<li class="active">Job #123456</li>
+                </ol>
+            	<div class="row">
                     <div class="col-md-6">
                     	<h2>Job #123456 <span class="glyphicon glyphicon-camera"></span></h2>
                     	<h3>55 Selandra Blvd. <span class="glyphicon glyphicon-map-marker"></span></h3>
@@ -36,7 +40,7 @@
                 
                 <div class="tab-content">
                 	<!-- Jobs > Responsible tab content -->
-                	<div class="tab-pane" id="jobs_responsible">
+                	<div class="tab-pane active" id="jobs_responsible">
                 	<div class="table-responsive tabtop">
                         <table class="table table-striped table-condensed">
                             <thead>
