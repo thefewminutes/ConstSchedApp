@@ -58,8 +58,9 @@ appControllers.controller('jobListCtrl', ['$scope', 'Job', function($scope, Job)
 
 appControllers.controller('jobResponsibleCtrl', ['$scope', '$routeParams', '$http',
   function($scope, $routeParams, $http) {
-    $http.get('jobs/' + $routeParams.jobId + '.json').success(function(data) {
+    $http.get('../henley/assets/json/jobs/' + $routeParams.jobId + '.json').success(function(data) {
       $scope.job = data;
+	  $scope.currentJob = $scope.job.JobList[0];
     }).error(function(data) {
 		alert('no data for this job');
 	});

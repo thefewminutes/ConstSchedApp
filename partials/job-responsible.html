@@ -12,24 +12,25 @@
         	<div class="tab-pane active" id="jobs">
                 <ol class="breadcrumb tabtop">
                 	<li><a href="#/dashboard">Jobs</a></li>
-                	<li class="active">Job #123456</li>
+                	<li class="active">Job {{currentJob.JobNumber}}</li>
                 </ol>
             	<div class="row">
                     <div class="col-md-6">
-                    	<h2>Job #123456 <span class="glyphicon glyphicon-camera"></span></h2>
-                    	<h3>55 Selandra Blvd. <span class="glyphicon glyphicon-map-marker"></span></h3>
+                    	<h2>Job {{currentJob.JobNumber}}</h2>
+                    	<h3>{{currentJob.JobAddress}} <span class="glyphicon glyphicon-map-marker"></span></h3>
                     </div>
                     <div class="col-md-4 col-md-offset-2 bg-info">
-                    	<h4>Customer #1234567</h4>
-                    	<p><strong>Mr. and Mrs. Kennedy</strong><br>
-                    	1234 test avenue yourtown, yourstate 99999</p>
+                    	<h4>Customer #{{currentJob.JobCustomer.CustomerAccountNumber}}</h4>
+                    	<p><strong>{{currentJob.JobCustomer.Name}}</strong><br>
+                    	{{currentJob.JobCustomer.PostalAddress}}</p>
                     	<h4>Primary Contact</h4>
-                    	<address>
-                    		<strong>Troy Dynamics</strong><br>
-                    		795 Folsom Ave, Suite 600 San Francisco, CA 94107<br>
-                    		<span class="glyphicon glyphicon-envelope"></span> <a href="mailto:joe@joeplumber.com">joe@joeplumber.com</a><br>
-                    		<span class="glyphicon glyphicon-phone"></span> <a href="tel:+13174562564">(123) 456-7890</a>
-                    	</address>
+                        <div ng-repeat="contact in currentJob.JobContactPeople | filter:IsPrimaryContact='true'">
+                            <address>
+                                <strong>{{contact.Name}}</strong><br>
+                                <span class="glyphicon glyphicon-envelope"></span> <a href="mailto:{{contact.ContactPersonDetails.Email}}">{{contact.ContactPersonDetails.Email}}</a><br>
+                                <span class="glyphicon glyphicon-phone"></span> <a href="tel:+{{contact.ContactPersonDetails.Mobile}}">{{contact.ContactPersonDetails.Mobile}}</a>
+                            </address>
+                        </div>
 					</div>
         		</div>
                 
@@ -52,35 +53,11 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Admin</td>
-                                    <td>Peter Farkenparker</td>
-                                    <td><a href="mailto:joe@joeplumber.com">joe@joeplumber.com</a></td>
-                                    <td><a href="tel:+13174562564">(123) 456-7890</a></td>
-                                </tr>
-                                <tr>
-                                    <td>Estimator</td>
-                                    <td>Peter Farkenparker</td>
-                                    <td><a href="mailto:joe@joeplumber.com">joe@joeplumber.com</a></td>
-                                    <td><a href="tel:+13174562564">(123) 456-7890</a></td>
-                                </tr>
-                                <tr>
-                                    <td>Estimator</td>
-                                    <td>Peter Farkenparker</td>
-                                    <td><a href="mailto:joe@joeplumber.com">joe@joeplumber.com</a></td>
-                                    <td><a href="tel:+13174562564">(123) 456-7890</a></td>
-                                </tr>
-                                <tr>
-                                    <td>Draftsperson</td>
-                                    <td>Peter Farkenparker</td>
-                                    <td><a href="mailto:joe@joeplumber.com">joe@joeplumber.com</a></td>
-                                    <td><a href="tel:+13174562564">(123) 456-7890</a></td>
-                                </tr>
-                                <tr>
-                                    <td>Draftsperson</td>
-                                    <td>Peter Farkenparker</td>
-                                    <td><a href="mailto:joe@joeplumber.com">joe@joeplumber.com</a></td>
-                                    <td><a href="tel:+13174562564">(123) 456-7890</a></td>
+                                <tr ng-repeat="responsible in currentJob.JobTeamMembers">
+                                    <td>{{responsible.Responsibility}}</td>
+                                    <td>{{responsible.EmployeeName}}</td>
+                                    <td><a href="mailto:{{responsible.EmployeeContactDetails.Email}}">{{responsible.EmployeeContactDetails.Email}}</a></td>
+                                    <td><a href="tel:{{responsible.EmployeeContactDetails.Mobile}}">{{responsible.EmployeeContactDetails.Mobile}}</a></td>
                                 </tr>
                             </tbody>
                         </table>
