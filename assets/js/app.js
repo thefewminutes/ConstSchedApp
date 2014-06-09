@@ -6,7 +6,8 @@ angular.module('constrSchedApp', [
   'appServices',
   'constrSchedApp.directives',
   'appControllers',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'ngAnimate'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.
@@ -17,6 +18,10 @@ config(['$routeProvider', function($routeProvider) {
 	when('/job-responsible/:jobId', {
 		templateUrl: 'partials/job-responsible.html', 
 		controller: 'jobResponsibleCtrl'
+	}).
+	when('/job-documents/:jobId', {
+		templateUrl: 'partials/job-documents.html', 
+		controller: 'jobDocumentsCtrl'
 	}).
 	otherwise({
 		redirectTo: '/dashboard'

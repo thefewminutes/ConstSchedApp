@@ -87,3 +87,8 @@ div.page-header {
 	border-right: 20px solid transparent;
 	border-top: 20px solid #f00;
 }
+
+.bg-danger {
+	padding:1em;
+	font-weight:bold;
+}

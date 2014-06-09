@@ -16,6 +16,8 @@
     <link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap-theme.min.css">
     <!-- Site styles -->
     <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+    <!-- Animations -->
+    <link rel="stylesheet" type="text/css" href="assets/css/animations.css">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -54,16 +56,16 @@
       </div>
     </div>
     <!-- view -->
-    <div ng-view></div>
+    <div ng-view class="view-frame"></div>
     <!-- /view -->
     <div id="footer">
       <div class="container">
         <p class="text-muted">&copy; Copyright 2014</p>
       </div>
     </div>
-    
     <script src="assets/angularjs/angular-route.js"></script>
     <script src="assets/angularjs/angular-resource.js"></script>
+    <script src="assets/angularjs/angular-animate.js"></script>
     <script src="assets/js/app.js"></script>
     <script src="assets/js/controllers.js"></script>
     <script src="assets/js/services.js"></script>

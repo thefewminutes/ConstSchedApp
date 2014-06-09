@@ -64,4 +64,35 @@ appControllers.controller('jobResponsibleCtrl', ['$scope', '$routeParams', '$htt
     }).error(function(data) {
 		alert('no data for this job');
 	});
+	$scope.showMap = function(location) { // display location in new window on google maps
+		if(location){
+			window.open('http://maps.google.com/?q=' + location);
+		} else {
+			alert('No Location Data');
+		};
+	};
+  }]);
+  
+  appControllers.controller('jobDocumentsCtrl', ['$scope', '$routeParams', '$http',
+  function($scope, $routeParams, $http) {
+	  // get the current job
+    $http.get('../henley/assets/json/jobs/' + $routeParams.jobId + '.json').success(function(data) {
+      $scope.job = data;
+	  $scope.currentJob = $scope.job.JobList[0];
+    }).error(function(data) {
+		alert('no data for this job');
+	});
+	// get the docs for the current job
+	$http.get('../henley/assets/json/docs/' + $routeParams.jobId + '.json').success(function(data) {
+      $scope.docs = data;
+    }).error(function(data) {
+		alert('no data for this job');
+	});
+	$scope.showMap = function(location) { // display location in new window on google maps
+		if(location){
+			window.open('http://maps.google.com/?q=' + location);
+		} else {
+			alert('No Location Data');
+		};
+	};
   }]);
