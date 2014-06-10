@@ -5,7 +5,12 @@
 var appControllers = angular.module('appControllers', []);
 
 appControllers.controller('jobListCtrl', ['$scope', 'Job', function($scope, Job) {
+	$scope.loading = true;
 	$scope.jobs = Job.query(); // create Job service
+	$scope.jobs.$promise.then(function (result) {
+		$scope.loading = false;
+    	$scope.jobs = result;
+});
 	
 	// sorting
 	$scope.sortField = "JobNumber";

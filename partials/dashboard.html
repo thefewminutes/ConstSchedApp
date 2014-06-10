@@ -8,7 +8,9 @@
         
         <!-- Tab panes -->
         <div class="tab-content">
-          <div class="tab-pane active" id="jobs"><!-- jobs tab -->
+          <div class="tab-pane active loading" ng-show="loading">
+          </div>
+          <div class="tab-pane active" id="jobs" ng-hide="loading"><!-- jobs tab -->
 			<p class="tabtop"><input ng-model="search" class="form-control input-md searchbox" type="search" placeholder="Search"></p>
             <div class="row">
                 <div class="col-md-12">

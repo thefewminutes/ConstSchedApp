@@ -92,3 +92,11 @@ div.page-header {
 	padding:1em;
 	font-weight:bold;
 }
+.loading {
+	height:20em;
+	margin-top: 1.5em;
+	background-color:#eaeaea;
+	background-image:url(../images/preloader.gif);
+	background-repeat:no-repeat;
+	background-position:center;
+}
