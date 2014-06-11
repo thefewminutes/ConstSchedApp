@@ -34,7 +34,7 @@ appControllers.controller('jobListCtrl', ['$scope', 'Job', function($scope, Job)
 	
 	//pagination
 	$scope.pageSize = 10; // number of records to display in table
-	$scope.maxSize = 5; // number of pagination page numbers to display
+	$scope.maxSize = 3; // number of pagination page numbers to display
 	$scope.pages = [];
 	$scope.$watch('filteredJobs.length', function(filteredSize){
 		$scope.pages.length = 0;
@@ -101,3 +101,26 @@ appControllers.controller('jobResponsibleCtrl', ['$scope', '$routeParams', '$htt
 		};
 	};
   }]);
+  
+	appControllers.controller('NavController', function ($scope, $location) {
+		$scope.isCollapsed = true;
+		$scope.$on('$routeChangeSuccess', function () {
+			$scope.isCollapsed = true;
+		});
+		
+		$scope.getClass = function (path) {
+			if(path === '/') {
+				if($location.path() === '/') {
+					return "active";
+				} else {
+					return "";
+				}
+			}
+		
+			if ($location.path().substr(0, path.length) === path) {
+				return "active";
+			} else {
+				return "";
+			}
+		}
+	});
