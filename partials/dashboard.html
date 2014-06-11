@@ -24,7 +24,7 @@
                 </div>
             </div>
             <div class="table-responsive">
-            	<table class="table table-condensed">
+            	<table class="table">
                 	<thead>
                         <tr>
                             <th ng-click="sort('JobNumber')">Job<i ng-class="{'glyphicon glyphicon-chevron-up pull-right':isSortUp('JobNumber'), 'glyphicon glyphicon-chevron-down pull-right':isSortDown('JobNumber')}"></i></th>
@@ -34,8 +34,8 @@
                             <th ng-click="sort('CurrentSubPhase')">Sub Phase<i ng-class="{'glyphicon glyphicon-chevron-up pull-right':isSortUp('CurrentSubPhase'), 'glyphicon glyphicon-chevron-down pull-right':isSortDown('CurrentSubPhase')}"></i></th>
                         </tr>
                     </thead>
-                    <tbody ng-repeat="job in filteredJobs = (jobs.JobList | filter:search | orderBy:sortField:reverse) | pagination:pageNo:pageSize" ng-class-even="'light-gray'" ng-class-odd="'dark-gray'" class="repeated-item">
-                        <tr>
+                    <tbody>
+                        <tr ng-repeat="job in filteredJobs = (jobs.JobList | filter:search | orderBy:sortField:reverse) | pagination:pageNo:pageSize" ng-class-even="'light-gray'" ng-class-odd="'dark-gray'" class="repeated-item">
                             <td><button type="button" ng-click="showMap(job.JobAddress)" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-map-marker"></span></button> <a href="#/job-responsible/{{job.JobNumber}}">{{job.JobNumber}}</a></td>
                             <td>{{job.JobAddress}}<span ng-show="!job.JobAddress">No Data</span></td>
                             <td>{{job.SelectedHouseType}}<span ng-show="!job.SelectedHouseType">No Data</span></td>
