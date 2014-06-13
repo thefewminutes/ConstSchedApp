@@ -10,9 +10,17 @@
         <div class="tab-content">
           <div class="tab-pane active loading" ng-show="loading">
           </div>
-          <div class="tab-pane active" id="jobs" ng-hide="loading"><!-- jobs tab -->
+          <!-- jobs tab -->
+          <div class="tab-pane active" id="jobs" ng-hide="loading">
 			<p class="tabtop"><input ng-model="search" class="form-control input-md searchbox" type="search" placeholder="Search"></p>
-            <div class="row">
+            <!-- show if no results -->
+            <div class="row" ng-hide="filteredJobs.length">
+                <div class="col-md-12">
+                    <p class="bg-danger"><span class="glyphicon glyphicon-exclamation-sign"></span> No Results</p>
+                </div>
+            </div>
+            <!-- show if there are results -->
+            <div class="row" ng-show="filteredJobs.length">
                 <div class="col-md-12">
                 <!-- pager -->
                 <pagination total-items="filteredJobs.length" page="pageNo" max-size="maxSize" class="pagination-md" boundary-links="true" rotate="false" num-pages="noOfPages" items-per-page="pageSize" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
@@ -23,7 +31,7 @@
                     </div>
                 </div>
             </div>
-            <div class="table-responsive">
+            <div ng-show="filteredJobs.length" class="table-responsive">
             	<table class="table">
                 	<thead>
                         <tr>
@@ -45,9 +53,13 @@
                     </tbody>
                 </table>
             </div><!-- /table-responsive -->
-            <!-- pager -->
-                <pagination total-items="filteredJobs.length" page="pageNo" max-size="maxSize" class="pagination-md" boundary-links="true" rotate="false" num-pages="noOfPages" items-per-page="pageSize" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
-                <pre>Page: {{pageNo}} / {{noOfPages}}</pre>
+            <div class="row" ng-show="filteredJobs.length">
+                <div class="col-md-12">
+            		<!-- pager -->
+                	<pagination total-items="filteredJobs.length" page="pageNo" max-size="maxSize" class="pagination-md" boundary-links="true" rotate="false" num-pages="noOfPages" items-per-page="pageSize" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
+                	<pre>Page: {{pageNo}} / {{noOfPages}}</pre>
+                </div>
+            </div>
 
           </div><!-- /jobs tab -->
         </div>
