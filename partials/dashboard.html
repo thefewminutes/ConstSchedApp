@@ -45,10 +45,10 @@
                     <tbody>
                         <tr ng-repeat="job in filteredJobs = (jobs.JobList | filter:search | orderBy:sortField:reverse) | pagination:pageNo:pageSize" ng-class-even="'light-gray'" ng-class-odd="'dark-gray'" class="repeated-item">
                             <td><button type="button" ng-click="showMap(job.JobAddress)" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-map-marker"></span></button> <a href="#/job-responsible/{{job.JobNumber}}">{{job.JobNumber}}</a></td>
-                            <td>{{job.JobAddress}}<span ng-show="!job.JobAddress">No Data</span></td>
-                            <td>{{job.SelectedHouseType}}<span ng-show="!job.SelectedHouseType">No Data</span></td>
-                            <td>{{job.SelectedFacade}}<span ng-show="!job.SelectedFacade">No Data</span></td>
-                            <td>{{job.CurrentSubPhase}}<span ng-show="!job.CurrentSubPhase">No Data</span></td>
+                            <td>{{job.JobAddress}}<span ng-show="!job.JobAddress" class="text-warning">No Data</span></td>
+                            <td>{{job.SelectedHouseType}}<span ng-show="!job.SelectedHouseType" class="text-warning">No Data</span></td>
+                            <td>{{job.SelectedFacade}}<span ng-show="!job.SelectedFacade" class="text-warning">No Data</span></td>
+                            <td>{{job.CurrentSubPhase}}<span ng-show="!job.CurrentSubPhase" class="text-warning">No Data</span></td>
                         </tr>
                     </tbody>
                 </table>

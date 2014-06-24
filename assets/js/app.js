@@ -23,6 +23,10 @@ config(['$routeProvider', function($routeProvider) {
 		templateUrl: 'partials/job-documents.html', 
 		controller: 'jobDocumentsCtrl'
 	}).
+	when('/job-po/:jobId', {
+		templateUrl: 'partials/job-po.html', 
+		controller: 'jobPoCtrl'
+	}).
 	otherwise({
 		redirectTo: '/dashboard'
 	});
