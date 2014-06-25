@@ -37,8 +37,8 @@
                 
                 <ul class="nav nav-pills tabtop">
                     <li><a href="#/job-responsible/{{currentJob.JobNumber}}">Responsible</a></li>
-                    <li><a href="#/job-documents/{{currentJob.JobNumber}}">Documents</a></li>
-                    <li class="active"><a href="#/job-po/{{currentJob.JobNumber}}">Purchase Orders</a></li>
+                    <li><a href="#/job-documents/{{currentJob.JobNumber}}">Documents <span class="badge">{{docs.JobDocuments.length}}</span></a></li>
+                    <li class="active"><a href="#/job-po/{{currentJob.JobNumber}}">Purchase Orders <span class="badge">5</span></a></li>
                 </ul>
                 
                 <div class="tab-content">
@@ -152,7 +152,7 @@
                                     <button type="button" ng-class="submitterClass" ng-disabled="!canSave">Submit</button>
                                 </div>
                                 <button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-refresh"></span> Update</button>
-                            </p>
+                            
                         </div>
               		</div>
                 </div>

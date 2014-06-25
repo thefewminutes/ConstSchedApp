@@ -69,6 +69,12 @@ appControllers.controller('jobResponsibleCtrl', ['$scope', '$routeParams', '$htt
     }).error(function(data) {
 		alert('no data for this job');
 	});
+		// get the docs for the current job
+	$http.get('../henley/assets/json/docs/' + $routeParams.jobId + '.json').success(function(data) {
+		$scope.docs = data;
+	}).error(function(data) {
+		alert('no docs data for this job');
+	});
 	$scope.showMap = function(location) { // display location in new window on google maps
 		if(location){
 			window.open('http://maps.google.com.au/?q=' + location);
@@ -91,7 +97,7 @@ appControllers.controller('jobResponsibleCtrl', ['$scope', '$routeParams', '$htt
 		$http.get('../henley/assets/json/docs/' + $routeParams.jobId + '.json').success(function(data) {
 			$scope.docs = data;
 		}).error(function(data) {
-			alert('no data for this job');
+			alert('no docs data for this job');
 		});
 		$scope.showMap = function(location) { // display location in new window on google maps
 			if(location){
@@ -109,6 +115,12 @@ appControllers.controller('jobResponsibleCtrl', ['$scope', '$routeParams', '$htt
 			$scope.currentJob = $scope.job.JobList[0];
 		}).error(function(data) {
 			alert('no data for this job');
+		});
+		// get the docs for the current job
+		$http.get('../henley/assets/json/docs/' + $routeParams.jobId + '.json').success(function(data) {
+			$scope.docs = data;
+		}).error(function(data) {
+			alert('no docs data for this job');
 		});
 		$scope.showMap = function(location) { // display location in new window on google maps
 			if(location){
