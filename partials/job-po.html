@@ -46,14 +46,17 @@
                 	<div class="tab-pane active" id="jobs_po">
                     <p class="tabtop"><input ng-model="search" class="form-control input-md searchbox" type="search" placeholder="Search"></p>
                 	<div class="table-responsive tabtop">
-                        <table class="table table-striped table-condensed">
+                        <table class="table table-striped">
                             <thead>
                                 <tr>
                                 	<th><input type="checkbox" value=""></th>
+                                    <th>PO Lines</th>
                                     <th>Purchase Order #</th>
                                     <th>Vendor</th>
                                     <th>Status</th>
-                                    <th>PO Amount</th>
+                                    <th>PO Amt</th>
+                                    <th>Invoice Amt</th>
+                                    <th>Remaining Amt</th>
                                     <th>Forecast/Actual Date</th>
                                     <th>Called For</th>
                                 </tr>
@@ -67,9 +70,12 @@
                                             </label>
                                         </div>
                                     </td>
+                                    <td><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-list"></span></button></td>
                                     <td>301008.3100-.01</td>
                                     <td>AAA</td>
                                     <td>Open Order</td>
+                                    <td>1100.00</td>
+                                    <td>1100.00</td>
                                     <td>1100.00</td>
                                     <td>15.12.2014 / 15.12.2014</td>
                                     <td>15.12.2014</td>
@@ -82,9 +88,12 @@
                                             </label>
                                         </div>
                                     </td>
+                                    <td><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-list"></span></button></td>
                                     <td>301008.3100-.01</td>
                                     <td>AAA</td>
                                     <td>Open Order</td>
+                                    <td>1100.00</td>
+                                    <td>1100.00</td>
                                     <td>1100.00</td>
                                     <td>15.12.2014 / 15.12.2014</td>
                                     <td>15.12.2014</td>
@@ -97,9 +106,12 @@
                                             </label>
                                         </div>
                                     </td>
+                                    <td><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-list"></span></button></td>
                                     <td>301008.3100-.01</td>
                                     <td>AAA</td>
                                     <td>Open Order</td>
+                                    <td>1100.00</td>
+                                    <td>1100.00</td>
                                     <td>1100.00</td>
                                     <td>15.12.2014 / 15.12.2014</td>
                                     <td>15.12.2014</td>
@@ -112,9 +124,12 @@
                                             </label>
                                         </div>
                                     </td>
+                                    <td><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-list"></span></button></td>
                                     <td>301008.3100-.01</td>
                                     <td>AAA</td>
                                     <td>Open Order</td>
+                                    <td>1100.00</td>
+                                    <td>1100.00</td>
                                     <td>1100.00</td>
                                     <td>15.12.2014 / 15.12.2014</td>
                                     <td>15.12.2014</td>
@@ -127,9 +142,12 @@
                                             </label>
                                         </div>
                                     </td>
+                                    <td><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-list"></span></button></td>
                                     <td>301008.3100-.01</td>
                                     <td>AAA</td>
                                     <td>Open Order</td>
+                                    <td>1100.00</td>
+                                    <td>1100.00</td>
                                     <td>1100.00</td>
                                     <td>15.12.2014 / 15.12.2014</td>
                                     <td>15.12.2014</td>
@@ -152,9 +170,10 @@
                                     <button type="button" ng-class="submitterClass" ng-disabled="!canSave">Submit</button>
                                 </div>
                                 <button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-refresh"></span> Update</button>
-                            
+                            </p>
                         </div>
               		</div>
+                    <hr>
                 </div>
                 <!-- / jobs > responsible tab -->
                 </div>
