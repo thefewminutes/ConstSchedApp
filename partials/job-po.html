@@ -142,11 +142,11 @@
                             <p>
                             	<div class="btn-group">
                                 	<div class="btn-group">
-                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">{{selectedAction}} <span class="caret"></span></button>
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span ng-class="actionIconClass"></span> {{selectedAction}} <span class="caret"></span></button>
                                         <ul class="dropdown-menu">
-                                        	<li><a ng-click="selectAction('Email Purchase Orders')">Email Purchase Orders</a></li>
-                                        	<li><a ng-click="selectAction('Print Purchase Orders')">Print Purchase Orders</a></li>
-                                            <li><a ng-click="selectAction('Select Action')">Reset</a></li>
+                                        	<li><a ng-click="selectAction('Email Purchase Orders')"><span class="glyphicon glyphicon-envelope"></span> Email Purchase Orders</a></li>
+                                        	<li><a ng-click="selectAction('Print Purchase Orders')"><span class="glyphicon glyphicon-print"></span> Print Purchase Orders</a></li>
+                                            <li><a ng-click="selectAction('Select Action')"><span class="glyphicon glyphicon-repeat"></span> Reset</a></li>
                                         </ul>
                                     </div>
                                     <button type="button" ng-class="submitterClass" ng-disabled="!canSave">Submit</button>

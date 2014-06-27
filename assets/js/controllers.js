@@ -133,15 +133,26 @@ appControllers.controller('jobResponsibleCtrl', ['$scope', '$routeParams', '$htt
 		// action buttons
 		$scope.canSave = false;
 		$scope.submitterClass = "btn btn-default";
+		$scope.actionIconClass = "";
 		$scope.selectedAction = "Select Action";
 		$scope.selectAction = function(action) {
-			if (action == 'Select Action') {
-				$scope.canSave = false;
-				$scope.submitterClass = "btn btn-default";
-			} else {
-				$scope.canSave = true;
-				$scope.submitterClass = "btn btn-primary";
-			}
+			switch (action) {
+				case 'Select Action':
+					$scope.canSave = false;
+					$scope.submitterClass = "btn btn-default";
+					$scope.actionIconClass = "";
+					break;
+				case 'Email Purchase Orders':
+					$scope.canSave = true;
+					$scope.submitterClass = "btn btn-primary";
+					$scope.actionIconClass = "glyphicon glyphicon-envelope";
+					break;
+				case 'Print Purchase Orders':
+					$scope.canSave = true;
+					$scope.submitterClass = "btn btn-primary";
+					$scope.actionIconClass = "glyphicon glyphicon-print";
+					break;
+			};
 			$scope.selectedAction = action;
 		};
 		
