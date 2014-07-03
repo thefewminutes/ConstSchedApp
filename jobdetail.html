@@ -383,107 +383,191 @@
                 </div>
                 <div class="tab-pane fade" id="jobs_pos"><!-- jobs > purchase orders tab -->
                 	<p class="tabtop"><input ng-model="search" class="form-control input-md searchbox" type="search" placeholder="Search"></p>
-                    <div class="table-responsive">
-            	<table class="table table-striped table-condensed">
-                	<thead>
-                        <tr>
-                            <th>Purchase Order #</th>
-                            <th>Vendor</th>
-                            <th>Status</th>
-                            <th>PO Amount</th>
-                            <th>Forecast/Actual Date</th>
-                            <th>Called For</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                            	<div class="checkbox">
-                                	<label>
-                                		<input type="checkbox" value="">
-                                		301008.3100-.01
-                                	</label>
-                                </div>
-                            </td>
-                            <td>AAA</td>
-                            <td>Open Order</td>
-                            <td>1100.00</td>
-                            <td>15.12.2014 / 15.12.2014</td>
-                            <td>15.12.2014</td>
-                        </tr>
-                        <tr>
-                            <td>
-                            	<div class="checkbox">
-                                	<label>
-                                		<input type="checkbox" value="">
-                                		301008.3100-.01
-                                	</label>
-                                </div>
-                            </td>
-                            <td>AAA</td>
-                            <td>Open Order</td>
-                            <td>1100.00</td>
-                            <td>15.12.2014 / 15.12.2014</td>
-                            <td>15.12.2014</td>
-                        </tr>
-                        <tr>
-                            <td>
-                            	<div class="checkbox">
-                                	<label>
-                                		<input type="checkbox" value="">
-                                		301008.3100-.01
-                                	</label>
-                                </div>
-                            </td>
-                            <td>AAA</td>
-                            <td>Open Order</td>
-                            <td>1100.00</td>
-                            <td>15.12.2014 / 15.12.2014</td>
-                            <td>15.12.2014</td>
-                        </tr>
-                        <tr>
-                            <td>
-                            	<div class="checkbox">
-                                	<label>
-                                		<input type="checkbox" value="">
-                                		301008.3100-.01
-                                	</label>
-                                </div>
-                            </td>
-                            <td>AAA</td>
-                            <td>Open Order</td>
-                            <td>1100.00</td>
-                            <td>15.12.2014 / 15.12.2014</td>
-                            <td>15.12.2014</td>
-                        </tr>
-                        <tr>
-                            <td>
-                            	<div class="checkbox">
-                                	<label>
-                                		<input type="checkbox" value="">
-                                		301008.3100-.01
-                                	</label>
-                                </div>
-                            </td>
-                            <td>AAA</td>
-                            <td>Open Order</td>
-                            <td>1100.00</td>
-                            <td>15.12.2014 / 15.12.2014</td>
-                            <td>15.12.2014</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div><!-- /table-responsive -->
+                    <div class="table-responsive tabtop">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                	<th><input type="checkbox" value=""></th>
+                                    <th>Line Items</th>
+                                    <th>Purchase Order #</th>
+                                    <th>Vendor</th>
+                                    <th>Cost Centre</th>
+                                    <th>Status</th>
+                                    <th>PO Amt</th>
+                                    <th>Invoice Amt</th>
+                                    <th>Remaining Amt</th>
+                                    <th>Emailed Date</th>
+                                    <th>Email Receipt</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="info">
+                                    <td>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" value="">
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td><button type="button" class="btn btn-primary btn-sm active"><span class="glyphicon glyphicon-list"></span></button></td>
+                                    <td>301008.3100-.01</td>
+                                    <td>AAA</td>
+                                    <td>Water Tapping</td>
+                                    <td>Open Order</td>
+                                    <td>1100.00</td>
+                                    <td>1100.00</td>
+                                    <td>1100.00</td>
+                                    <td>12/07/2014</td>
+                                    <td class="text-center"><span class="glyphicon glyphicon-ok"></span></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" value="">
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-list"></span></button></td>
+                                    <td>301008.3100-.02</td>
+                                    <td>AAA</td>
+                                    <td>Water Tapping</td>
+                                    <td>Open Order</td>
+                                    <td>1100.00</td>
+                                    <td>1100.00</td>
+                                    <td>1100.00</td>
+                                    <td>12/07/2014</td>
+                                    <td class="text-center"><span class="glyphicon glyphicon-ok"></span></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" value="">
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-list"></span></button></td>
+                                    <td>301008.3100-.03</td>
+                                    <td>AAA</td>
+                                    <td>Water Tapping</td>
+                                    <td>Open Order</td>
+                                    <td>1100.00</td>
+                                    <td>1100.00</td>
+                                    <td>1100.00</td>
+                                    <td>12/07/2014</td>
+                                    <td class="text-center"><span class="glyphicon glyphicon-ok"></span></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" value="">
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-list"></span></button></td>
+                                    <td>301008.3100-.04</td>
+                                    <td>AAA</td>
+                                    <td>Water Tapping</td>
+                                    <td>Open Order</td>
+                                    <td>1100.00</td>
+                                    <td>1100.00</td>
+                                    <td>1100.00</td>
+                                    <td>12/07/2014</td>
+                                    <td class="text-center"><span class="glyphicon glyphicon-ok"></span></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" value="">
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-list"></span></button></td>
+                                    <td>301008.3100-.05</td>
+                                    <td>AAA</td>
+                                    <td>Water Tapping</td>
+                                    <td>Open Order</td>
+                                    <td>1100.00</td>
+                                    <td>1100.00</td>
+                                    <td>1100.00</td>
+                                    <td>12/07/2014</td>
+                                    <td class="text-center"><span class="glyphicon glyphicon-ok"></span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+              		</div><!-- /table-responsive -->
             <div class="row">
-                <div class="col-md-12">
-					<p>
-                    	<a href="pocallup.html" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-envelope"></span> Email Call Up Selected</a>
-                        <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-flag"></span> Manual Call Up Selected</button>
-                    	<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-file"></span> Create PDF</button>
-                        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-refresh"></span> Update</button>
-                    </p>
-                </div>
-              </div>
+                        <div class="col-md-12">
+                            <p>
+                            	<div class="btn-group">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Select Action <span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                <li><a href="pocallup.html"><span class="glyphicon glyphicon-envelope"></span> Send Emails <span class="badge">4</span></a></li>
+                                <li><a href="#"><span class="glyphicon glyphicon-print"></span> Print Purchase Orders <span class="badge">4</span></a></li>
+                                <li><a href="#"><span class="glyphicon glyphicon-repeat"></span> Reset</a></li>
+                            </ul>
+                        </div>
+                        <button type="button" class="btn btn-default" disabled="disabled">Submit</button>
+                  </div>
+                            
+                        </div>
+              		</div>
+                    <hr>
+                    <!-- PO line items -->
+                    <h4>Line items for PO# 301008.3100-.01</h4>
+              <div class="table-responsive tabtop">
+                        <table class="table table-striped table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Item Code</th>
+                                    <th>Item Name</th>
+                                    <th>UOM</th>
+                                    <th>Quantity</th>
+                                    <th>Unit Price</th>
+                                    <th>Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>023046</td>
+                                    <td>F8 OBHW 75 x 25 Ex Yard</td>
+                                    <td>lin m</td>
+                                    <td>1.00</td>
+                                    <td>4300.20</td>
+                                    <td>4300.20</td>
+                                </tr>
+                                <tr>
+                                    <td>023046</td>
+                                    <td>F8 OBHW 75 x 25 Ex Yard</td>
+                                    <td>lin m</td>
+                                    <td>1.00</td>
+                                    <td>4300.20</td>
+                                    <td>4300.20</td>
+                                </tr>
+                                <tr>
+                                    <td>023046</td>
+                                    <td>F8 OBHW 75 x 25 Ex Yard</td>
+                                    <td>lin m</td>
+                                    <td>1.00</td>
+                                    <td>4300.20</td>
+                                    <td>4300.20</td>
+                                </tr>
+                                <tr>
+                                    <td>023046</td>
+                                    <td>F8 OBHW 75 x 25 Ex Yard</td>
+                                    <td>lin m</td>
+                                    <td>1.00</td>
+                                    <td>4300.20</td>
+                                    <td>4300.20</td>
+                                </tr>
+                            </tbody>
+                        </table>
+              </div><!-- /table-responsive -->
+                    <!-- /PO line items -->
                 </div><!-- /jobs > purchase orders tab -->
                 <div class="tab-pane fade" id="jobs_notes"><!-- jobs > job notes tab -->
                 	<div class="table-responsive tabtop">
