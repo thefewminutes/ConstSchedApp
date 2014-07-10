@@ -4,13 +4,38 @@
 
 var appControllers = angular.module('appControllers', []);
 
-appControllers.controller('jobListCtrl', ['$scope', 'Job', function($scope, Job) {
+appControllers.controller('jobListCtrl', ['$scope', 'Job', '$route', function($scope, Job, $route) {
+	
+	// get all the jobs from the Job service
 	$scope.loading = true;
+	$scope.httpError = false;
 	$scope.jobs = Job.query(); // create Job service
 	$scope.jobs.$promise.then(function (result) {
+		// successCallback
 		$scope.loading = false;
     	$scope.jobs = result;
-});
+	},function (reason) {
+		// errorCallback
+		$scope.loading = false;
+		$scope.httpError = true;
+		$scope.errorStatus = reason.status;
+		switch (reason.status) {
+				case 404:
+					$scope.errorInfo = 'The requested resource could not be found.';
+					break;
+				case 500:
+					$scope.errorInfo = 'Internal server error. No more information is available.';
+					break;
+				default:
+					$scope.errorInfo = 'An error has occurred.';
+					break;
+		};
+	});
+	
+	// reload the page
+	$scope.reloadPage = function () {
+		$route.reload();
+	};
 	
 	// sorting
 	$scope.sortField = "JobNumber";

@@ -8,10 +8,16 @@
         
         <!-- Tab panes -->
         <div class="tab-content">
+        	<!-- loading spinner -->
           <div class="tab-pane active loading" ng-show="loading">
           </div>
+          	<!-- error pane -->
+          <div class="tab-pane active" ng-show="httpError">
+          <p class="bg-danger tabtop">{{errorStatus}} Error: {{errorInfo}}</p>
+          <p class="text-danger">Try <a ng-click="reloadPage()" href="#">reloading the page</a> and if that doesn't help, contact the Administrator.</p>
+          </div>
           <!-- jobs tab -->
-          <div class="tab-pane active" id="jobs" ng-hide="loading">
+          <div class="tab-pane active" id="jobs" ng-hide="loading || httpError">
 			<p class="tabtop"><input ng-model="search" class="form-control input-md searchbox" type="search" placeholder="Search"></p>
             <!-- show if no results -->
             <div class="row" ng-hide="filteredJobs.length">
