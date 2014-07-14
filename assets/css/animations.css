@@ -13,10 +13,10 @@
 }
 
 .repeated-item.ng-leave {
-  -webkit-animation:0.5s rpt-ani;
-  -moz-animation:0.5s rpt-ani;
-  -o-animation:0.5s rpt-ani;
-  animation:0.5s rpt-ani;
+  -webkit-animation:0s rpt-ani;
+  -moz-animation:0s rpt-ani;
+  -o-animation:0s rpt-ani;
+  animation:0s rpt-ani;
 }
 
 @keyframes rpt-ani {
