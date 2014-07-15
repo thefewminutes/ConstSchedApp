@@ -74,17 +74,23 @@ div.page-header {
 }
 .icon-chevron-up {
 	width: 0; 
-	height: 0; 
+	height: 0;
+	display:inline-block;
+	vertical-align:middle;
 	border-left: 5px solid transparent;
 	border-right: 5px solid transparent;
 	border-bottom: 5px solid black;
+	margin-left:5px;
 }
 .icon-chevron-down {
 	width: 0; 
-	height: 0; 
-	border-left: 20px solid transparent;
-	border-right: 20px solid transparent;
-	border-top: 20px solid #f00;
+	height: 0;
+	display:inline-block;
+	vertical-align:middle;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-top: 5px solid black;
+	margin-left:5px;
 }
 
 .bg-danger {

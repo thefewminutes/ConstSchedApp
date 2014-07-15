@@ -38,14 +38,16 @@ appControllers.controller('jobListCtrl', ['$scope', 'Job', '$route', function($s
 	};
 	
 	// sorting
-	$scope.sortField = "JobNumber";
-	$scope.reverse = true;
+	$scope.sortField = undefined;
+	$scope.reverse = false;
 	$scope.sort = function (fieldName) { 
-		if ($scope.sortField === fieldName) { 
-			$scope.reverse = !$scope.reverse; 
+		if ($scope.sortField === fieldName) {
+			$scope.reverse = !$scope.reverse;
+			console.log($scope.sortField);
 		} else { 
 			$scope.sortField = fieldName; 
 			$scope.reverse = false;
+			console.log($scope.sortField);
 		}
 	};
 	
