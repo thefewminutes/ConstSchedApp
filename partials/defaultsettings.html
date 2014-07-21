@@ -1,0 +1,68 @@
+    <div class="container">
+    	<h1>Construction Scheduling Web App</h1>
+        <h2>Default Settings Form</h2>
+        <form role="form">
+        	<div class="row">
+            	<div class="col-md-3">
+                    <div class="form-group">
+                        <label for="company">Company</label>
+                        <select id="company" class="form-control">
+                            <option>Henley Victoria</option>
+                            <option>Henley Queensland</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="region">Region Settings</label>
+                        <select id="region" class="form-control">
+                            <option>AUS</option>
+                            <option>USA</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="responsibility">Responsibility</label>
+                        <select id="responsibility" class="form-control">
+                            <option>Supervisor</option>
+                            <option>Administrator</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="phase">Phase</label>
+                        <select id="phase" class="form-control">
+                            <option>Pre-Administration</option>
+                            <option>Administration</option>
+                        </select>
+                    </div>
+                </div>
+            </div><!-- /row -->
+            <div><hr></div>
+            <div><input ng-model="search" class="form-control input-md searchbox" type="search" placeholder="Search"></div>
+            <!-- pager -->
+            <pagination total-items="responsible.length" page="pageNo" max-size="maxSize" class="pagination-md" boundary-links="true" rotate="false" num-pages="noOfPages" items-per-page="pageSize" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
+            <div class="table-responsive">
+            	<table class="table table-striped">
+                	<thead>
+                    	<tr>
+                        	<th>Default</th>
+                            <th ng-click="sort('name')">Responsible Name<i ng-class="{'icon-chevron-up':isSortUp('name'), 'icon-chevron-down':isSortDown('name')}"></i></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    	<tr ng-repeat="responsible in responsible | filter:search | orderBy:sortField:reverse | pagination:pageNo:pageSize">
+                        	<td><input type="radio" name="defaultsettings" value="option1"></td>
+                            <td>{{responsible.name}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <pagination total-items="responsible.length" page="pageNo" max-size="maxSize" class="pagination-md" boundary-links="true" rotate="false" num-pages="noOfPages" items-per-page="pageSize" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
+            <pre>Page: {{pageNo}} / {{noOfPages}}</pre>
+        	<p><button type="submit" class="btn btn-default">Update Settings</button></p>
+        </form>
+        
+    </div><!-- /container -->

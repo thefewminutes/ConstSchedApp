@@ -27,6 +27,10 @@ config(['$routeProvider', function($routeProvider) {
 		templateUrl: 'partials/job-po.html', 
 		controller: 'jobPoCtrl'
 	}).
+	when('/defaultsettings', {
+		templateUrl: 'partials/defaultsettings.html', 
+		controller: 'defaultSettingsCtrl'
+	}).
 	otherwise({
 		redirectTo: '/dashboard'
 	});
