@@ -140,13 +140,16 @@ appControllers.controller('jobResponsibleCtrl', ['$scope', '$routeParams', '$htt
 		}).error(function(data) {
 			alert('no data for this job');
 		});
-		// get the docs for the current job
-		$http.get('../henley/assets/json/docs/' + $routeParams.jobId + '.json').success(function(data) {
-			$scope.docs = data;
+		
+		// get the purchase orders for the current job
+		$http.get('../henley/assets/json/po/' + $routeParams.jobId + '.json').success(function(data) {
+			$scope.po = data;
 		}).error(function(data) {
-			alert('no docs data for this job');
+			alert('no PO data for this job');
 		});
-		$scope.showMap = function(location) { // display location in new window on google maps
+		
+		// display location in new window on google maps
+		$scope.showMap = function(location) {
 			if(location){
 				window.open('http://maps.google.com.au/?q=' + location);
 			} else {

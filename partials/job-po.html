@@ -38,7 +38,7 @@
                 <ul class="nav nav-pills tabtop">
                     <li><a href="#/job-responsible/{{currentJob.JobNumber}}">Responsible</a></li>
                     <li><a href="#/job-documents/{{currentJob.JobNumber}}">Documents <span class="badge">{{docs.JobDocuments.length}}</span></a></li>
-                    <li class="active"><a href="#/job-po/{{currentJob.JobNumber}}">Purchase Orders <span class="badge">5</span></a></li>
+                    <li class="active"><a href="#/job-po/{{currentJob.JobNumber}}">Purchase Orders <span class="badge">{{po.PurchaseOrders.length}}</span></a></li>
                 </ul>
                 
                 <div class="tab-content">
@@ -51,7 +51,7 @@
                                 <tr>
                                 	<th><input type="checkbox" value=""></th>
                                     <th>Line Items</th>
-                                    <th>Purchase Order #</th>
+                                    <th>PO #</th>
                                     <th>Vendor</th>
                                     <th>Cost Centre</th>
                                     <th>Status</th>
@@ -63,7 +63,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="info">
+                                <tr ng-repeat="po in po.PurchaseOrders | filter:search">
                                     <td>
                                         <div class="checkbox">
                                             <label>
@@ -71,92 +71,16 @@
                                             </label>
                                         </div>
                                     </td>
-                                    <td><button type="button" class="btn btn-primary btn-sm active"><span class="glyphicon glyphicon-list"></span></button></td>
-                                    <td>301008.3100-.01</td>
-                                    <td>AAA</td>
-                                    <td>Water Tapping</td>
-                                    <td>Open Order</td>
-                                    <td>1100.00</td>
-                                    <td>1100.00</td>
-                                    <td>1100.00</td>
-                                    <td>12/07/2014</td>
-                                    <td class="text-center"><span class="glyphicon glyphicon-ok"></span></td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" value="">
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-list"></span></button></td>
-                                    <td>301008.3100-.02</td>
-                                    <td>AAA</td>
-                                    <td>Water Tapping</td>
-                                    <td>Open Order</td>
-                                    <td>1100.00</td>
-                                    <td>1100.00</td>
-                                    <td>1100.00</td>
-                                    <td>12/07/2014</td>
-                                    <td class="text-center"><span class="glyphicon glyphicon-ok"></span></td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" value="">
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-list"></span></button></td>
-                                    <td>301008.3100-.03</td>
-                                    <td>AAA</td>
-                                    <td>Water Tapping</td>
-                                    <td>Open Order</td>
-                                    <td>1100.00</td>
-                                    <td>1100.00</td>
-                                    <td>1100.00</td>
-                                    <td>12/07/2014</td>
-                                    <td class="text-center"><span class="glyphicon glyphicon-ok"></span></td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" value="">
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-list"></span></button></td>
-                                    <td>301008.3100-.04</td>
-                                    <td>AAA</td>
-                                    <td>Water Tapping</td>
-                                    <td>Open Order</td>
-                                    <td>1100.00</td>
-                                    <td>1100.00</td>
-                                    <td>1100.00</td>
-                                    <td>12/07/2014</td>
-                                    <td class="text-center"><span class="glyphicon glyphicon-ok"></span></td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" value="">
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-list"></span></button></td>
-                                    <td>301008.3100-.05</td>
-                                    <td>AAA</td>
-                                    <td>Water Tapping</td>
-                                    <td>Open Order</td>
-                                    <td>1100.00</td>
-                                    <td>1100.00</td>
-                                    <td>1100.00</td>
-                                    <td>12/07/2014</td>
-                                    <td class="text-center"><span class="glyphicon glyphicon-ok"></span></td>
+                                    <td><button type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-list"></span></button></td>
+                                    <td>{{po.PurchaseOrderNumber}}</td>
+                                    <td>{{po.VendorName}}</td>
+                                    <td>{{po.CostCentre}}</td>
+                                    <td>{{po.Status}}</td>
+                                    <td>{{po.POAmount | currency}}</td>
+                                    <td>INVOICE AMT</td>
+                                    <td>REMAINING AMT</td>
+                                    <td>{{po.CalledForDateString}}</td>
+                                    <td class="text-center"><span class="{{po.IsCalledFor | checkmark}}"></span></td>
                                 </tr>
                             </tbody>
                         </table>
