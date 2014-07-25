@@ -45,7 +45,8 @@
                 	<!-- Jobs > POs tab content -->
                 	<div class="tab-pane active" id="jobs_po">
                     <p class="tabtop"><input ng-model="search" class="form-control input-md searchbox" type="search" placeholder="Search"></p>
-                	<div class="table-responsive tabtop">
+                    <pagination total-items="filteredPo.length" page="pageNo" max-size="maxSize" class="pagination-md" boundary-links="true" rotate="false" num-pages="noOfPages" items-per-page="pageSize" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
+                	<div class="table-responsive">
                         <table class="table table-striped">
                             <thead>
                                 <tr>
@@ -63,7 +64,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="po in po.PurchaseOrders | filter:search">
+                                <tr ng-repeat="po in filteredPo = (po.PurchaseOrders | filter:search) | pagination:pageNo:pageSize">
                                     <td>
                                         <div class="checkbox">
                                             <label>
@@ -85,6 +86,7 @@
                             </tbody>
                         </table>
               		</div><!-- /table-responsive -->
+                    <pagination total-items="filteredPo.length" page="pageNo" max-size="maxSize" class="pagination-md" boundary-links="true" rotate="false" num-pages="noOfPages" items-per-page="pageSize" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
                     <div class="row">
                         <div class="col-md-12">
                             <p>

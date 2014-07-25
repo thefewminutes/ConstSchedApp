@@ -99,6 +99,13 @@ appControllers.controller('jobResponsibleCtrl', ['$scope', '$routeParams', '$htt
 	}).error(function(data) {
 		alert('no docs data for this job');
 	});
+	
+	// get the purchase orders for the current job
+	$http.get('../henley/assets/json/po/' + $routeParams.jobId + '.json').success(function(data) {
+		$scope.po = data;
+	}).error(function(data) {
+		alert('no PO data for this job');
+	});
 	$scope.showMap = function(location) { // display location in new window on google maps
 		if(location){
 			window.open('http://maps.google.com.au/?q=' + location);
@@ -123,6 +130,14 @@ appControllers.controller('jobResponsibleCtrl', ['$scope', '$routeParams', '$htt
 		}).error(function(data) {
 			alert('no docs data for this job');
 		});
+		
+		// get the purchase orders for the current job
+		$http.get('../henley/assets/json/po/' + $routeParams.jobId + '.json').success(function(data) {
+			$scope.po = data;
+		}).error(function(data) {
+			alert('no PO data for this job');
+		});
+		
 		$scope.showMap = function(location) { // display location in new window on google maps
 			if(location){
 				window.open('http://maps.google.com.au/?q=' + location);
@@ -141,12 +156,37 @@ appControllers.controller('jobResponsibleCtrl', ['$scope', '$routeParams', '$htt
 			alert('no data for this job');
 		});
 		
+		// get the docs for the current job
+		$http.get('../henley/assets/json/docs/' + $routeParams.jobId + '.json').success(function(data) {
+			$scope.docs = data;
+		}).error(function(data) {
+			alert('no docs data for this job');
+		});
+		
 		// get the purchase orders for the current job
 		$http.get('../henley/assets/json/po/' + $routeParams.jobId + '.json').success(function(data) {
 			$scope.po = data;
 		}).error(function(data) {
 			alert('no PO data for this job');
 		});
+		
+		//pagination
+		$scope.pageSize = 10; // number of records to display in table
+		$scope.maxSize = 3; // number of pagination page numbers to display
+		$scope.pages = [];
+		$scope.$watch('filteredJobs.length', function(filteredSize){
+			$scope.pages.length = 0;
+			var noOfPages = Math.ceil(filteredSize / $scope.pageSize);
+			for (var i=0; i<noOfPages; i++) {
+				$scope.pages.push(i);
+			}
+		});
+		$scope.pageNo = 1;
+		$scope.setPage = function (pageNo) {
+			if (pageNo >=0 && pageNo < $scope.pages.length) {
+				$scope.pageNo = pageNo;
+			}
+		};
 		
 		// display location in new window on google maps
 		$scope.showMap = function(location) {
