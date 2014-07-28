@@ -45,18 +45,18 @@
                 	<!-- Jobs > POs tab content -->
                 	<div class="tab-pane active" id="jobs_po">
                     <p class="tabtop"><input ng-model="search" class="form-control input-md searchbox" type="search" placeholder="Search"></p>
-                    <pagination total-items="filteredPo.length" page="pageNo" max-size="maxSize" class="pagination-md" boundary-links="true" rotate="false" num-pages="noOfPages" items-per-page="pageSize" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
+                    <pagination ng-show="filteredPo.length>maxSize" total-items="filteredPo.length" page="pageNo" max-size="maxSize" class="pagination-md" boundary-links="true" rotate="false" num-pages="noOfPages" items-per-page="pageSize" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
                 	<div class="table-responsive">
                         <table class="table table-striped">
                             <thead>
                                 <tr>
                                 	<th><input type="checkbox" value=""></th>
-                                    <th>Line Items</th>
-                                    <th>PO #</th>
-                                    <th>Vendor</th>
-                                    <th>Cost Centre</th>
-                                    <th>Status</th>
-                                    <th>PO Amt</th>
+                                    <th>Items</th>
+                                    <th ng-click="sort('PurchaseOrderNumber')">PO #<i ng-class="{'icon-chevron-up':isSortUp('PurchaseOrderNumber'), 'icon-chevron-down':isSortDown('PurchaseOrderNumber')}"></i></th>
+                                    <th ng-click="sort('VendorName')">Vendor<i ng-class="{'icon-chevron-up':isSortUp('VendorName'), 'icon-chevron-down':isSortDown('VendorName')}"></i></th>
+                                    <th ng-click="sort('CostCentre')">Cost Centre<i ng-class="{'icon-chevron-up':isSortUp('CostCentre'), 'icon-chevron-down':isSortDown('CostCentre')}"></i></th>
+                                    <th ng-click="sort('Status')">Status<i ng-class="{'icon-chevron-up':isSortUp('Status'), 'icon-chevron-down':isSortDown('Status')}"></i></th>
+                                    <th ng-click="sort('POAmount')">PO Amt<i ng-class="{'icon-chevron-up':isSortUp('POAmount'), 'icon-chevron-down':isSortDown('POAmount')}"></i></th>
                                     <th>Invoice Amt</th>
                                     <th>Remaining Amt</th>
                                     <th>Emailed Date</th>
@@ -64,7 +64,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="po in filteredPo = (po.PurchaseOrders | filter:search) | pagination:pageNo:pageSize">
+                                <tr ng-repeat="po in filteredPo = (po.PurchaseOrders | filter:search | orderBy:sortField:reverse) | pagination:pageNo:pageSize" class="repeated-item">
                                     <td>
                                         <div class="checkbox">
                                             <label>
@@ -72,21 +72,21 @@
                                             </label>
                                         </div>
                                     </td>
-                                    <td><button type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-list"></span></button></td>
+                                    <td><button ng-click="toggleCollapsed(po.PurchaseOrderNumber)" type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-list"></span></button></td>
                                     <td>{{po.PurchaseOrderNumber}}</td>
                                     <td>{{po.VendorName}}</td>
                                     <td>{{po.CostCentre}}</td>
                                     <td>{{po.Status}}</td>
                                     <td>{{po.POAmount | currency}}</td>
-                                    <td>INVOICE AMT</td>
-                                    <td>REMAINING AMT</td>
+                                    <td>{{po.InvoiceTotalIncTax | currency}}</td>
+                                    <td>{{po.POAmount - po.InvoiceTotalIncTax | currency}}</td>
                                     <td>{{po.CalledForDateString}}</td>
                                     <td class="text-center"><span class="{{po.IsCalledFor | checkmark}}"></span></td>
                                 </tr>
                             </tbody>
                         </table>
               		</div><!-- /table-responsive -->
-                    <pagination total-items="filteredPo.length" page="pageNo" max-size="maxSize" class="pagination-md" boundary-links="true" rotate="false" num-pages="noOfPages" items-per-page="pageSize" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
+                    <pagination ng-show="filteredPo.length>maxSize" total-items="filteredPo.length" page="pageNo" max-size="maxSize" class="pagination-md" boundary-links="true" rotate="false" num-pages="noOfPages" items-per-page="pageSize" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
                     <div class="row">
                         <div class="col-md-12">
                             <p>

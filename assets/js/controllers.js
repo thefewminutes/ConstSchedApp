@@ -170,6 +170,26 @@ appControllers.controller('jobResponsibleCtrl', ['$scope', '$routeParams', '$htt
 			alert('no PO data for this job');
 		});
 		
+		// sorting
+		$scope.sortField = undefined;
+		$scope.reverse = false;
+		$scope.sort = function (fieldName) { 
+			if ($scope.sortField === fieldName) {
+				$scope.reverse = !$scope.reverse;
+			} else { 
+				$scope.sortField = fieldName; 
+				$scope.reverse = false;
+			}
+		};
+		
+		// sorting visual indicators
+		$scope.isSortUp = function (fieldName) {
+			return $scope.sortField === fieldName && !$scope.reverse;
+		};
+		$scope.isSortDown = function (fieldName) {
+			return $scope.sortField === fieldName && $scope.reverse;
+		};
+		
 		//pagination
 		$scope.pageSize = 10; // number of records to display in table
 		$scope.maxSize = 3; // number of pagination page numbers to display
@@ -221,6 +241,15 @@ appControllers.controller('jobResponsibleCtrl', ['$scope', '$routeParams', '$htt
 					break;
 			};
 			$scope.selectedAction = action;
+		};
+		
+		// toggle collapsing the PO table on click
+		$scope.toggleCollapsed = function(po) {
+			if ($scope.search == po) {
+				$scope.search = null;
+			} else {
+				$scope.search = po;
+			}
 		};
 		
 	}]);
