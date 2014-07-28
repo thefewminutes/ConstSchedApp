@@ -44,7 +44,7 @@
                 <div class="tab-content">
                 	<!-- Jobs > POs tab content -->
                 	<div class="tab-pane active" id="jobs_po">
-                    <p class="tabtop"><input ng-model="search" class="form-control input-md searchbox" type="search" placeholder="Search"></p>
+                    <p class="tabtop"><input ng-hide="hideSearch" ng-model="search" class="form-control input-md searchbox" type="search" placeholder="Search"></p>
                     <pagination ng-show="filteredPo.length>maxSize" total-items="filteredPo.length" page="pageNo" max-size="maxSize" class="pagination-md" boundary-links="true" rotate="false" num-pages="noOfPages" items-per-page="pageSize" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
                 	<div class="table-responsive">
                         <table class="table table-striped">
@@ -57,10 +57,10 @@
                                     <th ng-click="sort('CostCentre')">Cost Centre<i ng-class="{'icon-chevron-up':isSortUp('CostCentre'), 'icon-chevron-down':isSortDown('CostCentre')}"></i></th>
                                     <th ng-click="sort('Status')">Status<i ng-class="{'icon-chevron-up':isSortUp('Status'), 'icon-chevron-down':isSortDown('Status')}"></i></th>
                                     <th ng-click="sort('POAmount')">PO Amt<i ng-class="{'icon-chevron-up':isSortUp('POAmount'), 'icon-chevron-down':isSortDown('POAmount')}"></i></th>
-                                    <th>Invoice Amt</th>
+                                    <th ng-click="sort('InvoiceTotalIncTax')">Invoice Amt<i ng-class="{'icon-chevron-up':isSortUp('InvoiceTotalIncTax'), 'icon-chevron-down':isSortDown('InvoiceTotalIncTax')}"></i></th>
                                     <th>Remaining Amt</th>
-                                    <th>Emailed Date</th>
-                                    <th>Email Receipt</th>
+                                    <th ng-click="sort('CalledForDateString')">Emailed Date<i ng-class="{'icon-chevron-up':isSortUp('CalledForDateString'), 'icon-chevron-down':isSortDown('CalledForDateString')}"></i></th>
+                                    <th ng-click="sort('IsCalledFor')">Email Receipt<i ng-class="{'icon-chevron-up':isSortUp('IsCalledFor'), 'icon-chevron-down':isSortDown('IsCalledFor')}"></i></th>
                                 </tr>
                             </thead>
                             <tbody>

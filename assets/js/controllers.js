@@ -247,8 +247,10 @@ appControllers.controller('jobResponsibleCtrl', ['$scope', '$routeParams', '$htt
 		$scope.toggleCollapsed = function(po) {
 			if ($scope.search == po) {
 				$scope.search = null;
+				$scope.hideSearch = false;
 			} else {
 				$scope.search = po;
+				$scope.hideSearch = true;
 			}
 		};
 		
