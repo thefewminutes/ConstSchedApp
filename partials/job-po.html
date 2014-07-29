@@ -72,7 +72,7 @@
                                             </label>
                                         </div>
                                     </td>
-                                    <td><button ng-click="toggleCollapsed(po.PurchaseOrderNumber)" type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-list"></span></button></td>
+                                    <td><button ng-click="listItems(po)" type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-list"></span></button></td>
                                     <td>{{po.PurchaseOrderNumber}}</td>
                                     <td>{{po.VendorName}}</td>
                                     <td>{{po.CostCentre}}</td>
@@ -106,56 +106,38 @@
               		</div>
                     <hr>
                     <!-- PO line items -->
-                    <h4>Line items for PO# 301008.3100-.01</h4>
-              <div class="table-responsive tabtop">
-                        <table class="table table-striped table-condensed">
-                            <thead>
-                                <tr>
-                                    <th>Item Code</th>
-                                    <th>Item Name</th>
-                                    <th>UOM</th>
-                                    <th>Quantity</th>
-                                    <th>Unit Price</th>
-                                    <th>Amount</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>023046</td>
-                                    <td>F8 OBHW 75 x 25 Ex Yard</td>
-                                    <td>lin m</td>
-                                    <td>1.00</td>
-                                    <td>4300.20</td>
-                                    <td>4300.20</td>
-                                </tr>
-                                <tr>
-                                    <td>023046</td>
-                                    <td>F8 OBHW 75 x 25 Ex Yard</td>
-                                    <td>lin m</td>
-                                    <td>1.00</td>
-                                    <td>4300.20</td>
-                                    <td>4300.20</td>
-                                </tr>
-                                <tr>
-                                    <td>023046</td>
-                                    <td>F8 OBHW 75 x 25 Ex Yard</td>
-                                    <td>lin m</td>
-                                    <td>1.00</td>
-                                    <td>4300.20</td>
-                                    <td>4300.20</td>
-                                </tr>
-                                <tr>
-                                    <td>023046</td>
-                                    <td>F8 OBHW 75 x 25 Ex Yard</td>
-                                    <td>lin m</td>
-                                    <td>1.00</td>
-                                    <td>4300.20</td>
-                                    <td>4300.20</td>
-                                </tr>
-                            </tbody>
-                        </table>
-              </div><!-- /table-responsive -->
+                    <div ng-show="selectedPo">
+                    <h4>Line items for PO# {{selectedPo.PurchaseOrderNumber}}</h4>
+                      <div ng-show="lineItems.length" class="table-responsive tabtop">
+                                <table class="table table-striped table-condensed">
+                                    <thead>
+                                        <tr>
+                                            <th>Item Code</th>
+                                            <th>Item Name</th>
+                                            <th>UOM</th>
+                                            <th>Quantity</th>
+                                            <th>Unit Price</th>
+                                            <th>Amount</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="lineItem in lineItems">
+                                            <td>{{lineItem.ItemCode}}</td>
+                                            <td>{{lineItem.ItemDescription}}</td>
+                                            <td>{{lineItem.UnitOfMeasure}}</td>
+                                            <td>{{lineItem.Quantity}}</td>
+                                            <td>{{lineItem.UnitPrice | currency}}</td>
+                                            <td>{{lineItem.TotalExTax | currency}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                      </div><!-- /table-responsive -->
+                      <div ng-hide="lineItems.length">
+                      		<p class="bg-danger"><strong>No Results</strong></p>
+                      </div>
+                      </div>
                     <!-- /PO line items -->
+                    
                 </div>
                 <!-- / jobs > responsible tab -->
                 </div>

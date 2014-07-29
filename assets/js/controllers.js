@@ -243,14 +243,18 @@ appControllers.controller('jobResponsibleCtrl', ['$scope', '$routeParams', '$htt
 			$scope.selectedAction = action;
 		};
 		
-		// toggle collapsing the PO table on click
-		$scope.toggleCollapsed = function(po) {
-			if ($scope.search == po) {
+		// toggle collapsing the PO table on click and list PO items
+		$scope.listItems = function(selectedPo) {
+			if ($scope.search == selectedPo.PurchaseOrderNumber) { // if the button has already been clicked
 				$scope.search = null;
 				$scope.hideSearch = false;
+				$scope.selectedPo = null;
+				$scope.lineItems = null;
 			} else {
-				$scope.search = po;
+				$scope.search = selectedPo.PurchaseOrderNumber;
 				$scope.hideSearch = true;
+				$scope.selectedPo = selectedPo;
+				$scope.lineItems = selectedPo.PurchaseOrderLineDatas;
 			}
 		};
 		
