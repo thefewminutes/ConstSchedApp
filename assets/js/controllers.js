@@ -261,6 +261,19 @@ appControllers.controller('jobResponsibleCtrl', ['$scope', '$routeParams', '$htt
 			}
 		};
 		
+		// check all checkboxes
+		$scope.checkAll = function () {
+        	if ($scope.selectedAll) {
+            	$scope.selectedAll = false;
+        	} else {
+            	$scope.selectedAll = true;
+        	}
+        	angular.forEach($scope.filteredPo, function (item) {
+            	item.Selected = $scope.selectedAll;
+        	});
+
+    	};
+		
 	}]);
   
 	appControllers.controller('NavController', function ($scope, $location) {

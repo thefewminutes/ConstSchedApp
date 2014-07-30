@@ -52,7 +52,7 @@
                         <table class="table table-striped">
                             <thead>
                                 <tr>
-                                	<th><input type="checkbox" value=""></th>
+                                	<th><input type="checkbox" ng-model="selectedAll" ng-click="checkAll()"></th>
                                     <th>Items</th>
                                     <th ng-click="sort('PurchaseOrderNumber')">PO #<i ng-class="{'icon-chevron-up':isSortUp('PurchaseOrderNumber'), 'icon-chevron-down':isSortDown('PurchaseOrderNumber')}"></i></th>
                                     <th ng-click="sort('VendorName')">Vendor<i ng-class="{'icon-chevron-up':isSortUp('VendorName'), 'icon-chevron-down':isSortDown('VendorName')}"></i></th>
@@ -67,13 +67,7 @@
                             </thead>
                             <tbody>
                                 <tr ng-repeat="po in filteredPo = (po.PurchaseOrders | filter:search | orderBy:sortField:reverse) | pagination:pageNo:pageSize" class="repeated-item">
-                                    <td>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" value="">
-                                            </label>
-                                        </div>
-                                    </td>
+                                    <td><input type="checkbox" ng-model="po.Selected"></td>
                                     <td><button ng-click="listItems(po)" type="button" ng-class="listbtn"><span class="glyphicon glyphicon-list"></span></button></td>
                                     <td>{{po.PurchaseOrderNumber}}</td>
                                     <td>{{po.VendorName}}</td>
