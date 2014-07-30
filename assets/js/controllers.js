@@ -243,6 +243,7 @@ appControllers.controller('jobResponsibleCtrl', ['$scope', '$routeParams', '$htt
 			$scope.selectedAction = action;
 		};
 		
+		$scope.listbtn = 'btn btn-default btn-sm';
 		// toggle collapsing the PO table on click and list PO items
 		$scope.listItems = function(selectedPo) {
 			if ($scope.search == selectedPo.PurchaseOrderNumber) { // if the button has already been clicked
@@ -250,11 +251,13 @@ appControllers.controller('jobResponsibleCtrl', ['$scope', '$routeParams', '$htt
 				$scope.hideSearch = false;
 				$scope.selectedPo = null;
 				$scope.lineItems = null;
+				$scope.listbtn = 'btn btn-default btn-sm';
 			} else {
 				$scope.search = selectedPo.PurchaseOrderNumber;
 				$scope.hideSearch = true;
 				$scope.selectedPo = selectedPo;
 				$scope.lineItems = selectedPo.PurchaseOrderLineDatas;
+				$scope.listbtn = 'btn btn-primary btn-sm';
 			}
 		};
 		
